@@ -1,0 +1,17 @@
+platform :ios, '9.0'
+use_frameworks!
+
+target 'AYWeibo' do
+    pod 'Alamofire', '~> 3.4'
+    pod 'SDWebImage', '~>3.8'
+    pod 'SVProgressHUD'
+end
+
+target 'AYWeiboTests' do
+
+end
+
+target 'AYWeiboUITests' do
+
+end
+
