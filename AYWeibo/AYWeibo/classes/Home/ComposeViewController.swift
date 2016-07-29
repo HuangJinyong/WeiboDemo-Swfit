@@ -12,6 +12,9 @@ class ComposeViewController: UIViewController {
     
     /// 工具条底部约束
     private var toolbarBottomConstraint: NSLayoutConstraint?
+    
+    /// 微博最大字数
+    private let maxCount = 10
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,11 +68,15 @@ class ComposeViewController: UIViewController {
         
         // 3.添加工具条
         self.view.addSubview(toolbar)
+        
+        // 4.添加提示label
+        self.view.addSubview(tipLabel)
     }
     
     private func setupConstraints() {
         textView.translatesAutoresizingMaskIntoConstraints = false
         toolbar.translatesAutoresizingMaskIntoConstraints = false
+        tipLabel.translatesAutoresizingMaskIntoConstraints = false
         
         // 文本视图布局
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[textView]-0-|", options: .DirectionMask, metrics: nil, views: ["textView": textView]))
@@ -80,6 +87,11 @@ class ComposeViewController: UIViewController {
         toolbarBottomConstraint = NSLayoutConstraint(item: toolbar, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: 0.0)
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[toolbar]-0-|", options: .DirectionMask, metrics: nil, views: ["toolbar": toolbar]))
         self.view.addConstraint(toolbarBottomConstraint!)
+        
+        // 提示label布局
+        var constraintsLabel = NSLayoutConstraint.constraintsWithVisualFormat("H:[tipLabel(40)]-0-|", options: .DirectionMask, metrics: nil, views: ["tipLabel": tipLabel, "toolbar": toolbar])
+        constraintsLabel += NSLayoutConstraint.constraintsWithVisualFormat("V:[tipLabel(20)]-5-[toolbar]", options: .DirectionMask, metrics: nil, views: ["tipLabel": tipLabel, "toolbar": toolbar])
+        self.view.addConstraints(constraintsLabel)
     }
     
     // 左侧导航按钮监听
@@ -148,14 +160,35 @@ class ComposeViewController: UIViewController {
         self.textViewDidChange(self.textView)
     }
     
+    /// 数字提醒
+    private lazy var tipLabel: UILabel = {
+        let lb = UILabel()
+        lb.textAlignment = .Center        
+        return lb
+    }()
+    
 }
 
 // MARK: - UITextViewDelegate
 
 extension ComposeViewController: UITextViewDelegate {
     func textViewDidChange(textView: UITextView) {
-        // 判断是发送按钮是否可以点击和文本提示是否关闭
+        // 1.判断是发送按钮是否可以点击和文本提示是否关闭
         self.navigationItem.rightBarButtonItem?.enabled = textView.hasText()
         self.textView.placeholderLabel.hidden = textView.hasText()
+        
+        // 2.将剩余字数显示到提示label
+        // 2.1 获取当前输入了多少字数
+        let currentCount = self.textView.replaceEmoticonAttributedString().characters.count
+        // 2.2 计算用户还可以输入多少字数
+        let leftCount = maxCount - currentCount
+        // 2.2 在tiplabel中显示剩余个数
+        tipLabel.text = "\(leftCount)"
+        
+        // 3.如果超过字数不允许发送
+        self.navigationItem.rightBarButtonItem?.enabled = leftCount >= 0
+        
+        // 4.设置提示文本颜色
+        tipLabel.textColor = leftCount >= 0 ? UIColor.lightGrayColor() : UIColor.redColor()
     }
 }
