@@ -53,7 +53,7 @@ class JYTextView: UITextView {
     }
     
     // MARK: - 懒加载
-    private lazy var placeholderLabel: UILabel = {
+    lazy var placeholderLabel: UILabel = {
         let lb = UILabel()
         lb.text = "分享新鲜事..."
         lb.textColor = UIColor.lightGrayColor()

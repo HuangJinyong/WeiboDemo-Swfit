@@ -24,10 +24,12 @@
 		4B2F1D161D43D7E1006FEBF8 /* JYTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2F1D151D43D7E1006FEBF8 /* JYTextView.swift */; };
 		4B2F1D181D449A2C006FEBF8 /* ComposeToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2F1D171D449A2C006FEBF8 /* ComposeToolbar.swift */; };
 		4B2F1D1A1D449B2B006FEBF8 /* ComposeToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B2F1D191D449B2B006FEBF8 /* ComposeToolbar.xib */; };
-		4B78E3A41D4685350005AD38 /* JYKeyboardEmoticonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B78E39F1D4685350005AD38 /* JYKeyboardEmoticonCollectionViewCell.swift */; };
-		4B78E3A51D4685350005AD38 /* JYKeyboardEmoticonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B78E3A01D4685350005AD38 /* JYKeyboardEmoticonViewController.swift */; };
-		4B78E3A61D4685350005AD38 /* JYKeyboardPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B78E3A11D4685350005AD38 /* JYKeyboardPackage.swift */; };
-		4B78E3A71D4685350005AD38 /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B78E3A21D4685350005AD38 /* Emoticons.bundle */; };
+		4B758DB71D4B427900AFAD1A /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B758DB11D4B427900AFAD1A /* Emoticons.bundle */; };
+		4B758DB81D4B427900AFAD1A /* JYKeyboardEmoticonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B758DB21D4B427900AFAD1A /* JYKeyboardEmoticonCollectionViewCell.swift */; };
+		4B758DB91D4B427900AFAD1A /* JYKeyboardEmoticonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B758DB31D4B427900AFAD1A /* JYKeyboardEmoticonViewController.swift */; };
+		4B758DBA1D4B427900AFAD1A /* JYKeyboardPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B758DB41D4B427900AFAD1A /* JYKeyboardPackage.swift */; };
+		4B758DBB1D4B427900AFAD1A /* JYKeyboardTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B758DB51D4B427900AFAD1A /* JYKeyboardTextAttachment.swift */; };
+		4B758DBC1D4B427900AFAD1A /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B758DB61D4B427900AFAD1A /* UITextView+Extension.swift */; };
 		DD5251531D1BCA5600B6CAF6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5251521D1BCA5600B6CAF6 /* UserModel.swift */; };
 		DD5251561D1BE48400B6CAF6 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5251541D1BE48400B6CAF6 /* HomeTableViewCell.swift */; };
 		DD5251571D1BE48400B6CAF6 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD5251551D1BE48400B6CAF6 /* HomeTableViewCell.xib */; };
@@ -107,10 +109,12 @@
 		4B2F1D151D43D7E1006FEBF8 /* JYTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JYTextView.swift; path = AYWeibo/classes/Home/JYTextView.swift; sourceTree = SOURCE_ROOT; };
 		4B2F1D171D449A2C006FEBF8 /* ComposeToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComposeToolbar.swift; path = AYWeibo/classes/Home/ComposeToolbar.swift; sourceTree = SOURCE_ROOT; };
 		4B2F1D191D449B2B006FEBF8 /* ComposeToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ComposeToolbar.xib; path = AYWeibo/classes/Home/ComposeToolbar.xib; sourceTree = SOURCE_ROOT; };
-		4B78E39F1D4685350005AD38 /* JYKeyboardEmoticonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYKeyboardEmoticonCollectionViewCell.swift; sourceTree = "<group>"; };
-		4B78E3A01D4685350005AD38 /* JYKeyboardEmoticonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYKeyboardEmoticonViewController.swift; sourceTree = "<group>"; };
-		4B78E3A11D4685350005AD38 /* JYKeyboardPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYKeyboardPackage.swift; sourceTree = "<group>"; };
-		4B78E3A21D4685350005AD38 /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
+		4B758DB11D4B427900AFAD1A /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
+		4B758DB21D4B427900AFAD1A /* JYKeyboardEmoticonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYKeyboardEmoticonCollectionViewCell.swift; sourceTree = "<group>"; };
+		4B758DB31D4B427900AFAD1A /* JYKeyboardEmoticonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYKeyboardEmoticonViewController.swift; sourceTree = "<group>"; };
+		4B758DB41D4B427900AFAD1A /* JYKeyboardPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYKeyboardPackage.swift; sourceTree = "<group>"; };
+		4B758DB51D4B427900AFAD1A /* JYKeyboardTextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYKeyboardTextAttachment.swift; sourceTree = "<group>"; };
+		4B758DB61D4B427900AFAD1A /* UITextView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
 		BFD7938325764509CF28D412 /* Pods-AYWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AYWeibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AYWeibo/Pods-AYWeibo.debug.xcconfig"; sourceTree = "<group>"; };
 		DD5251521D1BCA5600B6CAF6 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		DD5251541D1BE48400B6CAF6 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -219,16 +223,17 @@
 			name = Refresh;
 			sourceTree = "<group>";
 		};
-		4B78E3A31D4685350005AD38 /* KeyboardEmoticon */ = {
+		4B758DB01D4B427900AFAD1A /* KeyboardEmoticon */ = {
 			isa = PBXGroup;
 			children = (
-				4B78E39F1D4685350005AD38 /* JYKeyboardEmoticonCollectionViewCell.swift */,
-				4B78E3A01D4685350005AD38 /* JYKeyboardEmoticonViewController.swift */,
-				4B78E3A11D4685350005AD38 /* JYKeyboardPackage.swift */,
-				4B78E3A21D4685350005AD38 /* Emoticons.bundle */,
+				4B758DB11D4B427900AFAD1A /* Emoticons.bundle */,
+				4B758DB31D4B427900AFAD1A /* JYKeyboardEmoticonViewController.swift */,
+				4B758DB21D4B427900AFAD1A /* JYKeyboardEmoticonCollectionViewCell.swift */,
+				4B758DB41D4B427900AFAD1A /* JYKeyboardPackage.swift */,
+				4B758DB51D4B427900AFAD1A /* JYKeyboardTextAttachment.swift */,
+				4B758DB61D4B427900AFAD1A /* UITextView+Extension.swift */,
 			);
-			name = KeyboardEmoticon;
-			path = "../../../../../封装库/表情键盘/表情键盘/KeyboardEmoticon";
+			path = KeyboardEmoticon;
 			sourceTree = "<group>";
 		};
 		6739A4F4E53A4B98358DAE73 /* Frameworks */ = {
@@ -336,7 +341,7 @@
 		DD677FC71CED6038004F0A4C /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				4B78E3A31D4685350005AD38 /* KeyboardEmoticon */,
+				4B758DB01D4B427900AFAD1A /* KeyboardEmoticon */,
 				483AFC401D34ABEE00A770F1 /* progress */,
 				DDD290B81D0425DC003C31AA /* UIButton+Extension.swift */,
 				DDD290BA1D042CA1003C31AA /* UIBarButtonItem+Extension.swift */,
@@ -563,7 +568,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDD290C21D06B88A003C31AA /* Popover.storyboard in Resources */,
-				4B78E3A71D4685350005AD38 /* Emoticons.bundle in Resources */,
+				4B758DB71D4B427900AFAD1A /* Emoticons.bundle in Resources */,
 				DDBDE9F61CFD813A00048845 /* MainVCSettings.json in Resources */,
 				DD699C9C1CEBADEE00E4704D /* Assets.xcassets in Resources */,
 				488566E31D26341500E6AFC8 /* ForwardTableViewCell.xib in Resources */,
@@ -649,7 +654,7 @@
 				DD5251601D1DB4A500B6CAF6 /* StatuseViewModel.swift in Sources */,
 				DDD2910F1D0AFDF0003C31AA /* UITabBarItemExtension.swift in Sources */,
 				DDD291081D0A183A003C31AA /* PopoverViewController.swift in Sources */,
-				4B78E3A61D4685350005AD38 /* JYKeyboardPackage.swift in Sources */,
+				4B758DBA1D4B427900AFAD1A /* JYKeyboardPackage.swift in Sources */,
 				DDD6F6041D193C55009ED1B0 /* Common.swift in Sources */,
 				DDD290B91D0425DC003C31AA /* UIButton+Extension.swift in Sources */,
 				DD677FD31CED686F004F0A4C /* MainViewController.swift in Sources */,
@@ -666,19 +671,21 @@
 				488566DF1D24FC4800E6AFC8 /* CollectionViewInHome.swift in Sources */,
 				DDD6F5FA1D18C5D5009ED1B0 /* UserAccount.swift in Sources */,
 				DDD291151D0B44D9003C31AA /* AYMacroMethod.swift in Sources */,
+				4B758DBC1D4B427900AFAD1A /* UITextView+Extension.swift in Sources */,
 				483AFBFC1D333F1300A770F1 /* ImageBrowserCell.swift in Sources */,
 				483AFC431D34AC0300A770F1 /* KYProgressView.swift in Sources */,
+				4B758DBB1D4B427900AFAD1A /* JYKeyboardTextAttachment.swift in Sources */,
 				DD699C951CEBADEE00E4704D /* AppDelegate.swift in Sources */,
 				DD677FCD1CED65EA004F0A4C /* DiscoverTableViewController.swift in Sources */,
 				DDB1ADC51D02D1A700AD1966 /* BaseViewController.swift in Sources */,
 				DDBDE9F71CFD813A00048845 /* NullViewController.swift in Sources */,
 				4B2F1D121D43C513006FEBF8 /* ComposeViewController.swift in Sources */,
 				488566E61D26753200E6AFC8 /* RefreshView.swift in Sources */,
-				4B78E3A41D4685350005AD38 /* JYKeyboardEmoticonCollectionViewCell.swift in Sources */,
+				4B758DB81D4B427900AFAD1A /* JYKeyboardEmoticonCollectionViewCell.swift in Sources */,
 				483AFC441D34AC0300A770F1 /* KYProgressImgView.swift in Sources */,
 				488566E11D256DCC00E6AFC8 /* CollectionViewCellInHome.swift in Sources */,
 				DDD290BB1D042CA1003C31AA /* UIBarButtonItem+Extension.swift in Sources */,
-				4B78E3A51D4685350005AD38 /* JYKeyboardEmoticonViewController.swift in Sources */,
+				4B758DB91D4B427900AFAD1A /* JYKeyboardEmoticonViewController.swift in Sources */,
 				DDB1ADC71D02D9D200AD1966 /* VisitorView.swift in Sources */,
 				DD677FCF1CED6615004F0A4C /* MessageTableViewController.swift in Sources */,
 				DDD290BF1D05C28E003C31AA /* TitleButton.swift in Sources */,

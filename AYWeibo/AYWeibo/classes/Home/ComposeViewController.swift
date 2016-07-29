@@ -65,10 +65,6 @@ class ComposeViewController: UIViewController {
         
         // 3.添加工具条
         self.view.addSubview(toolbar)
-        
-        // 4.添加表情键盘控制器
-        self.addChildViewController(keyboardEmoticomViewController)
-        
     }
     
     private func setupConstraints() {
@@ -94,8 +90,8 @@ class ComposeViewController: UIViewController {
     
     // 右侧导航按钮监听
     @objc private func rightBarButtonClick() {
-        QL2("")
-        let text = textView.text
+        let text = textView.replaceEmoticonAttributedString()
+        QL2(text)
         NetWorkTools.shareIntance.sendStatus(text) { (data, error) in
             if error != nil {
                 QL3("发送失败")
@@ -133,7 +129,7 @@ class ComposeViewController: UIViewController {
     }
     
     // MARK: - 懒加载
-    private lazy var textView: UITextView = {
+    private lazy var textView: JYTextView = {
         let tv = JYTextView(frame: CGRectZero, textContainer: nil)
         tv.font = UIFont.systemFontOfSize(14)
         return tv
@@ -142,9 +138,15 @@ class ComposeViewController: UIViewController {
     private lazy var toolbar: ComposeToolbar = {
         let tb = NSBundle.mainBundle().loadNibNamed("ComposeToolbar", owner: nil, options: nil).last as! ComposeToolbar
         return tb
+        
     }()
     
-    private lazy var keyboardEmoticomViewController: JYKeyboardEmoticonViewController = JYKeyboardEmoticonViewController()
+    private lazy var keyboardEmoticomViewController: JYKeyboardEmoticonViewController = JYKeyboardEmoticonViewController {
+        [unowned self] (emoticon) in
+        self.textView.insertEmoticon(emoticon)
+        // 当插入表情后，手动调用textView的文字发生改变的函数
+        self.textViewDidChange(self.textView)
+    }
     
 }
 
@@ -152,6 +154,8 @@ class ComposeViewController: UIViewController {
 
 extension ComposeViewController: UITextViewDelegate {
     func textViewDidChange(textView: UITextView) {
+        // 判断是发送按钮是否可以点击和文本提示是否关闭
         self.navigationItem.rightBarButtonItem?.enabled = textView.hasText()
+        self.textView.placeholderLabel.hidden = textView.hasText()
     }
 }
