@@ -13,21 +13,24 @@ class ComposeViewController: UIViewController {
     /// 工具条底部约束
     private var toolbarBottomConstraint: NSLayoutConstraint?
     
+    /// 相册视图的高度约束
+    private var heightConstraintPhotoPackerView: NSLayoutConstraint?
+    
     /// 微博最大字数
     private let maxCount = 10
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         // 1.添加子控件
         setupUI()
-        
+    
         // 2.布局子控件
         setupConstraints()
         
         // 3.注册通知
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.keyboardWillChange(_:)), name: UIKeyboardWillChangeFrameNotification, object: nil)
-        
+       
         // 4.将文本视图传递给toolbar
         toolbar.textView = textView
         toolbar.keyboardView = keyboardEmoticomViewController.view
@@ -47,36 +50,46 @@ class ComposeViewController: UIViewController {
     }
     
 
-    // MARK: - 内部控制方法
+    // MARK: 内部控制方法
     func setupUI() {
-        // 1.添加导航栏按钮
+        // 添加导航栏按钮
         let leftItem = UIBarButtonItem(title: "关闭", style: .Done, target: self, action: #selector(self.leftBarButtonClick))
         let rightItem = UIBarButtonItem(title: "发送", style: .Done, target: self, action: #selector(self.rightBarButtonClick))
-        // 1.1.添加左侧导航按钮
+        
+        // 添加左侧导航按钮
         self.navigationItem.leftBarButtonItem = leftItem
-        // 1.2.添加右侧导航按钮
+        
+        // 添加右侧导航按钮
         self.navigationItem.rightBarButtonItem = rightItem
         self.navigationItem.rightBarButtonItem?.enabled = false
-        // 1.3.添加导航标题
+        
+        // 添加导航标题
         let titleView = JYTitleView(frame: CGRectMake(0, 0, 100, 40))
         titleView.backgroundColor = self.navigationController?.navigationBar.backgroundColor
         self.navigationItem.titleView = titleView
         
-        // 2.添加文本视图
+        // 添加文本视图
         self.view.addSubview(textView)
         textView.delegate = self
         
-        // 3.添加工具条
-        self.view.addSubview(toolbar)
-        
-        // 4.添加提示label
+        // 添加提示label
         self.view.addSubview(tipLabel)
+        
+        // 添加相册选择视图
+        self.addChildViewController(photoPickerController)
+        self.view.addSubview(photoPickerController.view)
+        
+        // 添加工具条
+        
+        self.view.addSubview(toolbar)
     }
     
     private func setupConstraints() {
         textView.translatesAutoresizingMaskIntoConstraints = false
         toolbar.translatesAutoresizingMaskIntoConstraints = false
         tipLabel.translatesAutoresizingMaskIntoConstraints = false
+        photoPickerController.view.translatesAutoresizingMaskIntoConstraints = false
+        
         
         // 文本视图布局
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[textView]-0-|", options: .DirectionMask, metrics: nil, views: ["textView": textView]))
@@ -92,7 +105,16 @@ class ComposeViewController: UIViewController {
         var constraintsLabel = NSLayoutConstraint.constraintsWithVisualFormat("H:[tipLabel(40)]-0-|", options: .DirectionMask, metrics: nil, views: ["tipLabel": tipLabel, "toolbar": toolbar])
         constraintsLabel += NSLayoutConstraint.constraintsWithVisualFormat("V:[tipLabel(20)]-5-[toolbar]", options: .DirectionMask, metrics: nil, views: ["tipLabel": tipLabel, "toolbar": toolbar])
         self.view.addConstraints(constraintsLabel)
+        
+        // 布局相册选择视图
+        heightConstraintPhotoPackerView = NSLayoutConstraint(item: photoPickerController.view, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 0.0, constant: 0)
+        photoPickerController.view.addConstraint(heightConstraintPhotoPackerView!)
+        self.view.addConstraint(NSLayoutConstraint(item: photoPickerController.view, attribute: .Left, relatedBy: .Equal, toItem: self.view, attribute: .Left, multiplier: 1.0, constant: 0.0))
+        self.view.addConstraint(NSLayoutConstraint(item: photoPickerController.view, attribute: .Right, relatedBy: .Equal, toItem: self.view, attribute: .Right, multiplier: 1.0, constant: 0.0))
+        self.view.addConstraint(NSLayoutConstraint(item: photoPickerController.view, attribute: .Bottom, relatedBy: .Equal, toItem: self.view, attribute: .Bottom, multiplier: 1.0, constant: -44.0))
     }
+    
+    // MARK: 监听方法
     
     // 左侧导航按钮监听
     @objc private func leftBarButtonClick() {
@@ -140,7 +162,7 @@ class ComposeViewController: UIViewController {
         
     }
     
-    // MARK: - 懒加载
+    // MARK: 懒加载
     private lazy var textView: JYTextView = {
         let tv = JYTextView(frame: CGRectZero, textContainer: nil)
         tv.font = UIFont.systemFontOfSize(14)
@@ -149,6 +171,7 @@ class ComposeViewController: UIViewController {
     
     private lazy var toolbar: ComposeToolbar = {
         let tb = NSBundle.mainBundle().loadNibNamed("ComposeToolbar", owner: nil, options: nil).last as! ComposeToolbar
+        tb.composeToolbarDelegate = self
         return tb
         
     }()
@@ -158,7 +181,10 @@ class ComposeViewController: UIViewController {
         self.textView.insertEmoticon(emoticon)
         // 当插入表情后，手动调用textView的文字发生改变的函数
         self.textViewDidChange(self.textView)
+        
     }
+    
+    private lazy var photoPickerController: JYPhotoPickerController = JYPhotoPickerController(collectionViewLayout: JYPhotoPickerViewLayout())
     
     /// 数字提醒
     private lazy var tipLabel: UILabel = {
@@ -190,5 +216,16 @@ extension ComposeViewController: UITextViewDelegate {
         
         // 4.设置提示文本颜色
         tipLabel.textColor = leftCount >= 0 ? UIColor.lightGrayColor() : UIColor.redColor()
+    }
+}
+
+// MARK: - ComposeToolbarDelegate
+
+extension ComposeViewController: ComposeToolbarDelegate {
+    func toolbarDidClick(item: UIBarButtonItem) {
+        heightConstraintPhotoPackerView?.constant = 500
+        UIView.animateWithDuration(0.4) { 
+            self.photoPickerController.view.layoutIfNeeded()
+        }
     }
 }

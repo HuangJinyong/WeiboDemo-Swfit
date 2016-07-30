@@ -8,7 +8,19 @@
 
 import UIKit
 
+@objc protocol ComposeToolbarDelegate: NSObjectProtocol {
+    func toolbarDidClick(item: UIBarButtonItem)
+}
+
 class ComposeToolbar: UIToolbar {
+    
+    /// 接受外界传入的textView
+    var textView: UITextView?
+    
+    /// 接受键盘视图
+    var keyboardView: UIView?
+    
+    var composeToolbarDelegate: ComposeToolbarDelegate?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,18 +30,7 @@ class ComposeToolbar: UIToolbar {
         super.init(coder: aDecoder)
     }
     
-    /// 接受外界传入的textView
-    var textView: UITextView?
-    
-    /// 接受键盘视图
-    var keyboardView: UIView?
-    
-    // MARK: - 内部控制方法
-    
-    func setupUI() {
-        
-    }
-
+   
     // 表情按钮
     @IBAction func emotionBtnClick(sender: AnyObject) {
         /*
@@ -54,4 +55,12 @@ class ComposeToolbar: UIToolbar {
         // 3.切换后打开键盘
         textView?.becomeFirstResponder()
     }
+    
+    // 插入图片
+    @IBAction func inserImageItemClick(sender: UIBarButtonItem) {
+        if composeToolbarDelegate!.respondsToSelector(#selector(ComposeToolbarDelegate.toolbarDidClick(_:))) {
+            composeToolbarDelegate?.toolbarDidClick(sender)
+        }
+    }
+    
 }

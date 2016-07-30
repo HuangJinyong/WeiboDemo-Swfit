@@ -10,6 +10,7 @@ import UIKit
 
 class PopoverViewController: UIViewController {
     
+    
     private lazy var transitioningManager: AYTransitioningManager = {
        let tm = AYTransitioningManager()
         let frame = UIScreen.mainScreen().bounds

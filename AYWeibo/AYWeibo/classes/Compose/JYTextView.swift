@@ -9,7 +9,7 @@
 import UIKit
 
 class JYTextView: UITextView {
-
+    
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
         setupUI()
@@ -18,15 +18,20 @@ class JYTextView: UITextView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setupUI()
+        
+        
+        
     }
+
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.resignFirstResponder()
+    }
+    
     
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.resignFirstResponder()
-    }
     
     // MARK: - 内部控制方法
     private func setupUI() {

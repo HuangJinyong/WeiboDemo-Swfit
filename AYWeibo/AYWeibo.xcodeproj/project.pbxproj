@@ -19,17 +19,19 @@
 		488566E31D26341500E6AFC8 /* ForwardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488566E21D26341500E6AFC8 /* ForwardTableViewCell.xib */; };
 		488566E61D26753200E6AFC8 /* RefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488566E51D26753200E6AFC8 /* RefreshView.swift */; };
 		488566E81D26755800E6AFC8 /* RefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488566E71D26755800E6AFC8 /* RefreshView.xib */; };
-		4B2F1D121D43C513006FEBF8 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2F1D111D43C513006FEBF8 /* ComposeViewController.swift */; };
-		4B2F1D141D43C78A006FEBF8 /* JYTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2F1D131D43C78A006FEBF8 /* JYTitleView.swift */; };
-		4B2F1D161D43D7E1006FEBF8 /* JYTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2F1D151D43D7E1006FEBF8 /* JYTextView.swift */; };
-		4B2F1D181D449A2C006FEBF8 /* ComposeToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2F1D171D449A2C006FEBF8 /* ComposeToolbar.swift */; };
-		4B2F1D1A1D449B2B006FEBF8 /* ComposeToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B2F1D191D449B2B006FEBF8 /* ComposeToolbar.xib */; };
 		4B758DB71D4B427900AFAD1A /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4B758DB11D4B427900AFAD1A /* Emoticons.bundle */; };
 		4B758DB81D4B427900AFAD1A /* JYKeyboardEmoticonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B758DB21D4B427900AFAD1A /* JYKeyboardEmoticonCollectionViewCell.swift */; };
 		4B758DB91D4B427900AFAD1A /* JYKeyboardEmoticonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B758DB31D4B427900AFAD1A /* JYKeyboardEmoticonViewController.swift */; };
 		4B758DBA1D4B427900AFAD1A /* JYKeyboardPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B758DB41D4B427900AFAD1A /* JYKeyboardPackage.swift */; };
 		4B758DBB1D4B427900AFAD1A /* JYKeyboardTextAttachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B758DB51D4B427900AFAD1A /* JYKeyboardTextAttachment.swift */; };
 		4B758DBC1D4B427900AFAD1A /* UITextView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B758DB61D4B427900AFAD1A /* UITextView+Extension.swift */; };
+		4B758DC51D4B6D6800AFAD1A /* ComposeToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B758DC01D4B6D6800AFAD1A /* ComposeToolbar.swift */; };
+		4B758DC61D4B6D6800AFAD1A /* ComposeToolbar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B758DC11D4B6D6800AFAD1A /* ComposeToolbar.xib */; };
+		4B758DC71D4B6D6800AFAD1A /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B758DC21D4B6D6800AFAD1A /* ComposeViewController.swift */; };
+		4B758DC81D4B6D6800AFAD1A /* JYTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B758DC31D4B6D6800AFAD1A /* JYTextView.swift */; };
+		4B758DC91D4B6D6800AFAD1A /* JYTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B758DC41D4B6D6800AFAD1A /* JYTitleView.swift */; };
+		4B758DD61D4BB7C800AFAD1A /* JYPhotoPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B758DD51D4BB7C800AFAD1A /* JYPhotoPickerController.swift */; };
+		4B758DD81D4BB7F300AFAD1A /* JYPhotoPickerViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B758DD71D4BB7F300AFAD1A /* JYPhotoPickerViewCell.swift */; };
 		DD5251531D1BCA5600B6CAF6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5251521D1BCA5600B6CAF6 /* UserModel.swift */; };
 		DD5251561D1BE48400B6CAF6 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5251541D1BE48400B6CAF6 /* HomeTableViewCell.swift */; };
 		DD5251571D1BE48400B6CAF6 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD5251551D1BE48400B6CAF6 /* HomeTableViewCell.xib */; };
@@ -104,17 +106,19 @@
 		488566E21D26341500E6AFC8 /* ForwardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForwardTableViewCell.xib; sourceTree = "<group>"; };
 		488566E51D26753200E6AFC8 /* RefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshView.swift; sourceTree = "<group>"; };
 		488566E71D26755800E6AFC8 /* RefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefreshView.xib; sourceTree = "<group>"; };
-		4B2F1D111D43C513006FEBF8 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComposeViewController.swift; path = AYWeibo/classes/Home/ComposeViewController.swift; sourceTree = SOURCE_ROOT; };
-		4B2F1D131D43C78A006FEBF8 /* JYTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JYTitleView.swift; path = AYWeibo/classes/Home/JYTitleView.swift; sourceTree = SOURCE_ROOT; };
-		4B2F1D151D43D7E1006FEBF8 /* JYTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JYTextView.swift; path = AYWeibo/classes/Home/JYTextView.swift; sourceTree = SOURCE_ROOT; };
-		4B2F1D171D449A2C006FEBF8 /* ComposeToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComposeToolbar.swift; path = AYWeibo/classes/Home/ComposeToolbar.swift; sourceTree = SOURCE_ROOT; };
-		4B2F1D191D449B2B006FEBF8 /* ComposeToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ComposeToolbar.xib; path = AYWeibo/classes/Home/ComposeToolbar.xib; sourceTree = SOURCE_ROOT; };
 		4B758DB11D4B427900AFAD1A /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
 		4B758DB21D4B427900AFAD1A /* JYKeyboardEmoticonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYKeyboardEmoticonCollectionViewCell.swift; sourceTree = "<group>"; };
 		4B758DB31D4B427900AFAD1A /* JYKeyboardEmoticonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYKeyboardEmoticonViewController.swift; sourceTree = "<group>"; };
 		4B758DB41D4B427900AFAD1A /* JYKeyboardPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYKeyboardPackage.swift; sourceTree = "<group>"; };
 		4B758DB51D4B427900AFAD1A /* JYKeyboardTextAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYKeyboardTextAttachment.swift; sourceTree = "<group>"; };
 		4B758DB61D4B427900AFAD1A /* UITextView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView+Extension.swift"; sourceTree = "<group>"; };
+		4B758DC01D4B6D6800AFAD1A /* ComposeToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeToolbar.swift; sourceTree = "<group>"; };
+		4B758DC11D4B6D6800AFAD1A /* ComposeToolbar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeToolbar.xib; sourceTree = "<group>"; };
+		4B758DC21D4B6D6800AFAD1A /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		4B758DC31D4B6D6800AFAD1A /* JYTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYTextView.swift; sourceTree = "<group>"; };
+		4B758DC41D4B6D6800AFAD1A /* JYTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYTitleView.swift; sourceTree = "<group>"; };
+		4B758DD51D4BB7C800AFAD1A /* JYPhotoPickerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYPhotoPickerController.swift; sourceTree = "<group>"; };
+		4B758DD71D4BB7F300AFAD1A /* JYPhotoPickerViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYPhotoPickerViewCell.swift; sourceTree = "<group>"; };
 		BFD7938325764509CF28D412 /* Pods-AYWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AYWeibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AYWeibo/Pods-AYWeibo.debug.xcconfig"; sourceTree = "<group>"; };
 		DD5251521D1BCA5600B6CAF6 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		DD5251541D1BE48400B6CAF6 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
@@ -236,6 +240,28 @@
 			path = KeyboardEmoticon;
 			sourceTree = "<group>";
 		};
+		4B758DBF1D4B6D6800AFAD1A /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				4B758DC21D4B6D6800AFAD1A /* ComposeViewController.swift */,
+				4B758DC31D4B6D6800AFAD1A /* JYTextView.swift */,
+				4B758DC41D4B6D6800AFAD1A /* JYTitleView.swift */,
+				4B758DC01D4B6D6800AFAD1A /* ComposeToolbar.swift */,
+				4B758DC11D4B6D6800AFAD1A /* ComposeToolbar.xib */,
+				4B758DD41D4BB7C800AFAD1A /* PhotoPacker */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
+		4B758DD41D4BB7C800AFAD1A /* PhotoPacker */ = {
+			isa = PBXGroup;
+			children = (
+				4B758DD51D4BB7C800AFAD1A /* JYPhotoPickerController.swift */,
+				4B758DD71D4BB7F300AFAD1A /* JYPhotoPickerViewCell.swift */,
+			);
+			path = PhotoPacker;
+			sourceTree = "<group>";
+		};
 		6739A4F4E53A4B98358DAE73 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,23 +288,11 @@
 				DD677FC31CED6038004F0A4C /* Home */,
 				DD677FC51CED6038004F0A4C /* Message */,
 				DD677FC21CED6038004F0A4C /* Discover */,
+				4B758DBF1D4B6D6800AFAD1A /* Compose */,
 				DD677FC61CED6038004F0A4C /* Profile */,
-				DD677FC11CED6038004F0A4C /* Compose */,
 				DD677FC71CED6038004F0A4C /* Tools */,
 			);
 			path = classes;
-			sourceTree = "<group>";
-		};
-		DD677FC11CED6038004F0A4C /* Compose */ = {
-			isa = PBXGroup;
-			children = (
-				4B2F1D111D43C513006FEBF8 /* ComposeViewController.swift */,
-				4B2F1D131D43C78A006FEBF8 /* JYTitleView.swift */,
-				4B2F1D151D43D7E1006FEBF8 /* JYTextView.swift */,
-				4B2F1D171D449A2C006FEBF8 /* ComposeToolbar.swift */,
-				4B2F1D191D449B2B006FEBF8 /* ComposeToolbar.xib */,
-			);
-			path = Compose;
 			sourceTree = "<group>";
 		};
 		DD677FC21CED6038004F0A4C /* Discover */ = {
@@ -567,12 +581,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B758DC61D4B6D6800AFAD1A /* ComposeToolbar.xib in Resources */,
 				DDD290C21D06B88A003C31AA /* Popover.storyboard in Resources */,
 				4B758DB71D4B427900AFAD1A /* Emoticons.bundle in Resources */,
 				DDBDE9F61CFD813A00048845 /* MainVCSettings.json in Resources */,
 				DD699C9C1CEBADEE00E4704D /* Assets.xcassets in Resources */,
 				488566E31D26341500E6AFC8 /* ForwardTableViewCell.xib in Resources */,
-				4B2F1D1A1D449B2B006FEBF8 /* ComposeToolbar.xib in Resources */,
 				DD5251571D1BE48400B6CAF6 /* HomeTableViewCell.xib in Resources */,
 				DDB1ADC91D02D9F300AD1966 /* VisitorView.xib in Resources */,
 				488566E81D26755800E6AFC8 /* RefreshView.xib in Resources */,
@@ -650,12 +664,13 @@
 			files = (
 				DD7A62141D1992BE009427C1 /* WelcomeViewController.swift in Sources */,
 				DD5251621D1E414A00B6CAF6 /* RequestAccount.swift in Sources */,
-				4B2F1D181D449A2C006FEBF8 /* ComposeToolbar.swift in Sources */,
+				4B758DC91D4B6D6800AFAD1A /* JYTitleView.swift in Sources */,
 				DD5251601D1DB4A500B6CAF6 /* StatuseViewModel.swift in Sources */,
 				DDD2910F1D0AFDF0003C31AA /* UITabBarItemExtension.swift in Sources */,
 				DDD291081D0A183A003C31AA /* PopoverViewController.swift in Sources */,
 				4B758DBA1D4B427900AFAD1A /* JYKeyboardPackage.swift in Sources */,
 				DDD6F6041D193C55009ED1B0 /* Common.swift in Sources */,
+				4B758DC81D4B6D6800AFAD1A /* JYTextView.swift in Sources */,
 				DDD290B91D0425DC003C31AA /* UIButton+Extension.swift in Sources */,
 				DD677FD31CED686F004F0A4C /* MainViewController.swift in Sources */,
 				DD677FD11CED6626004F0A4C /* ProfileTableViewController.swift in Sources */,
@@ -675,12 +690,13 @@
 				483AFBFC1D333F1300A770F1 /* ImageBrowserCell.swift in Sources */,
 				483AFC431D34AC0300A770F1 /* KYProgressView.swift in Sources */,
 				4B758DBB1D4B427900AFAD1A /* JYKeyboardTextAttachment.swift in Sources */,
+				4B758DD81D4BB7F300AFAD1A /* JYPhotoPickerViewCell.swift in Sources */,
 				DD699C951CEBADEE00E4704D /* AppDelegate.swift in Sources */,
 				DD677FCD1CED65EA004F0A4C /* DiscoverTableViewController.swift in Sources */,
 				DDB1ADC51D02D1A700AD1966 /* BaseViewController.swift in Sources */,
 				DDBDE9F71CFD813A00048845 /* NullViewController.swift in Sources */,
-				4B2F1D121D43C513006FEBF8 /* ComposeViewController.swift in Sources */,
 				488566E61D26753200E6AFC8 /* RefreshView.swift in Sources */,
+				4B758DC71D4B6D6800AFAD1A /* ComposeViewController.swift in Sources */,
 				4B758DB81D4B427900AFAD1A /* JYKeyboardEmoticonCollectionViewCell.swift in Sources */,
 				483AFC441D34AC0300A770F1 /* KYProgressImgView.swift in Sources */,
 				488566E11D256DCC00E6AFC8 /* CollectionViewCellInHome.swift in Sources */,
@@ -688,19 +704,19 @@
 				4B758DB91D4B427900AFAD1A /* JYKeyboardEmoticonViewController.swift in Sources */,
 				DDB1ADC71D02D9D200AD1966 /* VisitorView.swift in Sources */,
 				DD677FCF1CED6615004F0A4C /* MessageTableViewController.swift in Sources */,
+				4B758DC51D4B6D6800AFAD1A /* ComposeToolbar.swift in Sources */,
 				DDD290BF1D05C28E003C31AA /* TitleButton.swift in Sources */,
 				DD699CC91CEC09B500E4704D /* QorumLogs.swift in Sources */,
 				DDD290C41D06C684003C31AA /* AYPresentationController.swift in Sources */,
 				DD5251531D1BCA5600B6CAF6 /* UserModel.swift in Sources */,
+				4B758DD61D4BB7C800AFAD1A /* JYPhotoPickerController.swift in Sources */,
 				DD5251561D1BE48400B6CAF6 /* HomeTableViewCell.swift in Sources */,
-				4B2F1D141D43C78A006FEBF8 /* JYTitleView.swift in Sources */,
 				DDD291111D0B122C003C31AA /* AYScanView.swift in Sources */,
 				483AFBAD1D2FE40800A770F1 /* StatuseHandle.swift in Sources */,
 				DDD2918D1D154F82003C31AA /* QRCodeCreateViewController.swift in Sources */,
 				DDD291901D182D97003C31AA /* OAuthViewController.swift in Sources */,
 				483AFBB01D30D99200A770F1 /* ImageBrowserViewController.swift in Sources */,
 				DD7A623A1D1A636F009427C1 /* NewfeatureViewController.swift in Sources */,
-				4B2F1D161D43D7E1006FEBF8 /* JYTextView.swift in Sources */,
 				DDD2910B1D0ADF7B003C31AA /* QRCordViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
