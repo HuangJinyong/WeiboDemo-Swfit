@@ -9,6 +9,10 @@
 import UIKit
 typealias sendValueClosure = (item: UIButton) -> Void
 
+@objc protocol JYPhotoPickerViewCellDelegate: NSObjectProtocol{
+    optional func photoPickerViewCellRemovePhotoBtnClick(cell: JYPhotoPickerViewCell)
+}
+
 
 class JYPhotoPickerViewCell: UICollectionViewCell {
     
@@ -21,11 +25,13 @@ class JYPhotoPickerViewCell: UICollectionViewCell {
                 removeBtn.hidden = true
                 imageBtn.setBackgroundImage(UIImage(named: "compose_pic_add"), forState: .Normal)
                 imageBtn.setBackgroundImage(UIImage(named: "compose_pic_add_highlighted"), forState: .Highlighted)
+                imageBtn.userInteractionEnabled = true
                 
             } else {
                 removeBtn.hidden = false
                 imageBtn.setBackgroundImage(image, forState: .Normal)
-            }
+                imageBtn.userInteractionEnabled = false
+             }
         }
     }
     
@@ -49,6 +55,8 @@ class JYPhotoPickerViewCell: UICollectionViewCell {
     
     /// 点击按钮回调闭包通知
     var btnClickcallBack: sendValueClosure?
+    
+    var delegate: JYPhotoPickerViewCellDelegate?
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -72,7 +80,7 @@ class JYPhotoPickerViewCell: UICollectionViewCell {
         self.addSubview(imageBtn)
         
         // 添加删除按钮
-        imageBtn.addSubview(removeBtn)
+        self.addSubview(removeBtn)
     }
     
     private func setupConstraints() {
@@ -85,7 +93,7 @@ class JYPhotoPickerViewCell: UICollectionViewCell {
         
         var constraintsRemoveBtn = NSLayoutConstraint.constraintsWithVisualFormat("H:[removeBtn]-0-|", options: .DirectionMask, metrics: nil, views: ["removeBtn": removeBtn])
         constraintsRemoveBtn += NSLayoutConstraint.constraintsWithVisualFormat("V:|-0-[removeBtn]", options: .DirectionMask, metrics: nil, views: ["removeBtn": removeBtn])
-        imageBtn.addConstraints(constraintsRemoveBtn)
+        self.addConstraints(constraintsRemoveBtn)
         
     }
     
@@ -95,6 +103,8 @@ class JYPhotoPickerViewCell: UICollectionViewCell {
     }
     
     @objc private func removeBtnClick() {
-        
+        if delegate!.respondsToSelector(#selector(JYPhotoPickerViewCellDelegate.photoPickerViewCellRemovePhotoBtnClick(_:))) {
+            delegate!.photoPickerViewCellRemovePhotoBtnClick!(self)
+        }
     }
 }

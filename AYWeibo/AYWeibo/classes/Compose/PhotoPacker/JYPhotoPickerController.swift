@@ -34,6 +34,7 @@ class JYPhotoPickerController: UICollectionViewController {
         cell.btnClickcallBack = { (item: UIButton) in
             self.packerPhotoImage()
         }
+        cell.delegate = self
         cell.image = indexPath.item >= images.count ? nil : images[indexPath.item]
         
         return cell
@@ -61,21 +62,62 @@ class JYPhotoPickerController: UICollectionViewController {
     }
 }
 
-// MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
+// MARK: - extension
 
+// MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
 extension JYPhotoPickerController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // 1.获取选中的照片
         let image = info["UIImagePickerControllerOriginalImage"] as! UIImage
         
         // 2.用collectionView显示照片
+        // 2.1 通过绘图生成一个压缩的新图片，解决内存占用过大问题
+        let NewImage = drawImage(image, width: 450.0)
         // 2.1将选中的图片放入数组中
-        images.append(image)
+        images.append(NewImage)
         // 2.2刷新数据
         self.collectionView?.reloadData()
         
         // 3.退出照片选择控制器
         picker.dismissViewControllerAnimated(true, completion: nil)
+    
+    }
+    
+    // 绘制选中的系统图片，解决内存占用过大的问题
+    private func drawImage(image: UIImage, width: CGFloat) -> UIImage {
+        // 1.根据传入的宽度，更具宽高比设置高度
+        let height = image.size.height / image.size.width * width
+        let size = CGSize(width: width, height: height)
+        
+        // 2.绘图
+        // 2.1 开启图片上下文
+        UIGraphicsBeginImageContext(size)
+        
+        // 2.2 将图片画到上下文
+        image.drawInRect(CGRectMake(0, 0, width, height))
+        
+        // 2.3 从上下文中获取绘制的新图片
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        
+        // 2.4 关闭图片上下文
+        UIGraphicsEndImageContext()
+        
+        // 3.返回新的图片
+        return newImage
+    }
+}
+
+// MARK:
+extension JYPhotoPickerController: JYPhotoPickerViewCellDelegate {
+    func photoPickerViewCellRemovePhotoBtnClick(cell: JYPhotoPickerViewCell) {
+         // 1.获取当前点击的索引
+        let indexPath = self.collectionView?.indexPathForCell(cell)
+        
+        // 2.移除当前图片
+        images.removeAtIndex(indexPath!.item)
+        
+        // 3.刷新表格
+        self.collectionView?.reloadData()
     }
 }
 
