@@ -122,17 +122,22 @@ class ComposeViewController: UIViewController {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    // 右侧导航按钮监听
+    // 右侧导航按钮监听 - 发送微博
     @objc private func rightBarButtonClick() {
+        
         let text = textView.replaceEmoticonAttributedString()
-        QL2(text)
-        NetWorkTools.shareIntance.sendStatus(text) { (data, error) in
+        let image = photoPickerController.images.last
+        
+        NetWorkTools.shareIntance.sendStatus(text, image: image) { (data, error) in
             if error != nil {
-                QL3("发送失败")
+                QL3("发送微博失败")
                 return
             }
             
-            self.dismissViewControllerAnimated(true, completion: nil)
+            if data != nil {
+                self.dismissViewControllerAnimated(true, completion: nil)
+
+            }
         }
     }
     
