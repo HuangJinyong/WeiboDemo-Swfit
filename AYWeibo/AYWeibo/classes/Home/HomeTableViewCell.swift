@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import KILabel
 
 class HomeTableViewCell: UITableViewCell {
     /// 头像
@@ -23,9 +24,9 @@ class HomeTableViewCell: UITableViewCell {
     /// 来源
     @IBOutlet var sourceLabel: UILabel!
     /// 正文
-    @IBOutlet var contentLabel: UILabel!
+    @IBOutlet var contentLabel: KILabel!
     /// 转发正文
-    @IBOutlet var forwardLabel: UILabel!
+    @IBOutlet var forwardLabel: KILabel!
     /// 配图视图
     @IBOutlet var picCollectionView: CollectionViewInHome!
     /// 配置视图布局
@@ -60,11 +61,11 @@ class HomeTableViewCell: UITableViewCell {
             sourceLabel.text = viewModel?.source_text
             
             // 7.设置正文
-            contentLabel.text = viewModel?.content_text
+            contentLabel.attributedText = JYKeyboardPackage.createAttributedString(viewModel!.content_text!, font: contentLabel.font)
             
             // 7.1 设置转发正文
             if let text = viewModel?.forward_content_text {
-                forwardLabel.text = text
+                forwardLabel.attributedText = JYKeyboardPackage.createAttributedString(text, font: forwardLabel.font)
                 forwardLabel.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.width - 2 * 10
             }
             
@@ -93,8 +94,23 @@ class HomeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         setupSubViews()
+        
+        // 监听@了谁
+        contentLabel.userHandleLinkTapHandler = { label, handle, range in
+            QL2("User handle \(handle) tapped")
+        }
+        
+        // 监听话题的点击
+        contentLabel.hashtagLinkTapHandler = { label, hashtag, range in
+            QL2("Hashtah \(hashtag) tapped")
+        }
+        
+        // 监听url的点击
+        contentLabel.urlLinkTapHandler = { label, url, range in
+            QL2("URL \(url) tapped")
+        }
+        
     
     }
 

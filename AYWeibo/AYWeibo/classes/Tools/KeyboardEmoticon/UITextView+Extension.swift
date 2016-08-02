@@ -28,7 +28,7 @@ extension UITextView {
             let fontHeight = self.font!.lineHeight
             attach.emoticonChs = emoticon.chs
             attach.image = UIImage(contentsOfFile: pngPath)
-            attach.bounds = CGRectMake(0, -3.5, fontHeight, fontHeight)
+            attach.bounds = CGRectMake(0, -5, fontHeight, fontHeight)
             let imageAttrStr = NSAttributedString(attachment: attach)
             
             // 2.3.获取光标所在的位置
@@ -44,7 +44,7 @@ extension UITextView {
             self.selectedRange = NSRange(location: range.location + 1, length: 0)
             
             // 2.7.重新设置self字体大小
-            self.font = UIFont.systemFontOfSize(self.font!.lineHeight)
+            self.font = UIFont.systemFontOfSize(18.0)
             return
         }
         

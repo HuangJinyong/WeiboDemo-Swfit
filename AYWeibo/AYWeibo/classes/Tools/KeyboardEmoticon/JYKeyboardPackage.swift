@@ -143,6 +143,85 @@ class JYKeyboardPackage: NSObject {
 }
 
 
+// MARK: - JYKeyboardPackage 扩展
+extension JYKeyboardPackage {
+    /// 创建富文本，用于显示图文混排
+    class func createAttributedString(text: String, font: UIFont) -> NSMutableAttributedString {
+        let mAttributedString = NSMutableAttributedString(string: text)
+        
+        // 1.定义正则表达式，通过正则表达式规则进行匹配
+        let pattern = "\\[.*?\\]"
+        let regex = try! NSRegularExpression(pattern: pattern, options: .CaseInsensitive)
+        let results = regex.matchesInString(text, options: NSMatchingOptions(rawValue:0), range: NSRange(location: 0, length: text.characters.count))
+        
+        // 2.遍历匹配结果，进行图文混排
+        var count = results.count - 1
+  
+        while count >= 0 {
+            let result = results[count]
+            // 2.1 获取匹配的表情的字符串名称
+            let chs = (text as NSString).substringWithRange(result.range)
+            
+            // 2.2 通过表情的字符串名称再模型数据中查找对应的表情图片路径
+            let pngPath = findEmoticonPngPath(chs)
+            
+            guard let emoticonPngPath = pngPath else {
+                count -= 1
+                continue
+            }
+            
+            // 2.3 如果获取到表情图片路径，进行图文混排
+            let attachment = NSTextAttachment()
+            attachment.image = UIImage(contentsOfFile: emoticonPngPath)
+            attachment.bounds = CGRect(x: 0, y: -5, width: font.lineHeight, height: font.lineHeight)
+            let emoticonString = NSAttributedString(attachment: attachment)
+            
+            // 2.4 将mutableStringArr中的chs替换成表情
+            mAttributedString.replaceCharactersInRange(result.range, withAttributedString: emoticonString)
+            
+            count -= 1
+        }
+        return mAttributedString
+    }
+    
+    /// 查找对应的表情图片路径
+    class func findEmoticonPngPath(emoticonChs: String) -> String? {
+        // 1.加载表情模型数组
+        let packeges = JYKeyboardPackage.loadEmoticonPackeges()
+       
+        // 2.遍历表情模型数组，查找匹配的chs
+        for packege in packeges {
+            guard let emoticons = packege.emoticons else {
+                continue
+            }
+            
+            // 2.1 如果表情数组存在，遍历表情数据
+            var pngPath: String?
+
+            for emoticon in emoticons {
+                guard let chs = emoticon.chs else {
+                    continue
+                }
+                
+                // 2.2 如果表情字符串存在，进行匹配。
+                if emoticonChs == chs {
+                    pngPath = emoticon.pngPath
+                    break // 终止当前循环
+                }
+            }
+            
+            // 2.3 匹配到了，就不需要再继续遍历下一个表情包，直接退出循环
+            if pngPath != nil {
+                return pngPath
+            }
+        }
+        
+        // 如果遍历了所以的表情包依然没有匹配值，则直接返回nil
+        return nil
+    }
+}
+
+
 // MARK: - 表情模型
 class JYKeyboardEmoticon: NSObject {
     /// 表情目录名

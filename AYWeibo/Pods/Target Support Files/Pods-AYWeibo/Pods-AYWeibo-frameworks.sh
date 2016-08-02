@@ -85,11 +85,13 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-AYWeibo/Alamofire.framework"
+  install_framework "Pods-AYWeibo/KILabel.framework"
   install_framework "Pods-AYWeibo/SDWebImage.framework"
   install_framework "Pods-AYWeibo/SVProgressHUD.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-AYWeibo/Alamofire.framework"
+  install_framework "Pods-AYWeibo/KILabel.framework"
   install_framework "Pods-AYWeibo/SDWebImage.framework"
   install_framework "Pods-AYWeibo/SVProgressHUD.framework"
 fi

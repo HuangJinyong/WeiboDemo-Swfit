@@ -34,15 +34,17 @@ class JYKeyboardEmoticonViewController: UIViewController {
         setupConstraints()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        
+        emoticonCollectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 1), atScrollPosition: .Left, animated: false)
     
-    
-
+    }
     
     // MARK: - 监听方法
     
     @objc func barButtonItemClick(sender: UIBarButtonItem) {
         let indexPath = NSIndexPath(forItem: 0, inSection: sender.tag)
-        emoticonCollectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Left, animated: false)
+        self.emoticonCollectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .Left, animated: false)
     }
     
     // MARK: - 内部控制方法

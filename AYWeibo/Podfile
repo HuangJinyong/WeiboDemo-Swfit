@@ -5,6 +5,7 @@ target 'AYWeibo' do
     pod 'Alamofire', '~> 3.4'
     pod 'SDWebImage', '~>3.8'
     pod 'SVProgressHUD'
+    pod 'KILabel', '~> 1.0.1'
 end
 
 target 'AYWeiboTests' do
